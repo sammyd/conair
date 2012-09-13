@@ -1,0 +1,8 @@
+certifi==0.0.8
+chardet==1.1
+pyserial==2.6
+python-dateutil==1.5
+requests==0.11.1ssl
+simplejson==2.6.1
+tempodb==0.3
+wsgiref==0.1.2
