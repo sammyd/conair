@@ -7,4 +7,3 @@ divider.
 There is a python script which calculates the temperature, and will upload it.
 
 sam
-
