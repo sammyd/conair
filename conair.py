@@ -14,11 +14,17 @@ def calculate_temp(value):
     return temp-273.15
 
 ser = serial.Serial('/dev/tty.usbserial-A800etDk', 9600)
+temperature_array = []
 while 1:
     r = ser.readline()
     split = r.split(": ")
     if split[0] == "sensorValue":
         value = split[1].strip()
         temp = calculate_temp(value)
-        client.write_key('temperature', DataPoint(datetime.datetime.now(), temp))
+        temperature_array.append(temp)
+        if(len(temperature_array) >= 20):
+            mean = sum(temperature_array) / float(len(temperature_array)) 
+            print "Saving off this minute's mean: %f" % mean
+            client.write_key('temperature', [DataPoint(datetime.datetime.now(), mean)])
+            temperature_array = []
 
