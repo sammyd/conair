@@ -22,6 +22,8 @@
 	<link rel="stylesheet" href="stylesheets/skeleton.css">
 	<link rel="stylesheet" href="stylesheets/layout.css">
 
+  <link rel="stylesheet" href="stylesheets/conair.css">
+
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -37,6 +39,8 @@
 <body>
 
 
+  <script src="http://d3js.org/d3.v2.js"></script>
+  <script src="http://square.github.com/cubism/cubism.v1.js"></script>
 
 	<!-- Primary Page Layout
 	================================================== -->
@@ -49,7 +53,8 @@
 			<h5>ScottLogic, Bristol</h5>
 			<hr />
 		</div>
-    <div class="sixteen columns" id="temp-chart">
+    <div class="sixteen columns">
+        <div id="chart"></div>
     </div>
     <div class="one-third column">
         <h3>Why?</h3>
@@ -70,6 +75,7 @@
     </div>
 	</div><!-- container -->
 
+  <script src="scripts/chart_plotter.js"></script>
 
 <!-- End Document
 ================================================== -->
