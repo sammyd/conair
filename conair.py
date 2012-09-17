@@ -17,8 +17,8 @@ ser = serial.Serial('/dev/tty.usbserial-A800etDk', 9600)
 temperature_array = []
 while 1:
     r = ser.readline()
-    split = r.split(": ")
-    if split[0] == "sensorValue":
+    split = r.split(" = ")
+    if split[0] == "sensorValue0":
         value = split[1].strip()
         temp = calculate_temp(value)
         temperature_array.append(temp)
