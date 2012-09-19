@@ -30,6 +30,6 @@ while 1:
         if(len(temperature_array) >= 20):
             mean = sum(temperature_array) / float(len(temperature_array)) 
             print "Saving off this minute's mean: %f" % mean
-            client.write_key('temperature', [DataPoint(datetime.datetime.now(), mean)])
+            client.write_key('temperature', [DataPoint(datetime.datetime.utcnow(), mean)])
             temperature_array = []
 
