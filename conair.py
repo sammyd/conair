@@ -32,4 +32,9 @@ while 1:
             print "Saving off this minute's mean: %f" % mean
             client.write_key('temperature', [DataPoint(datetime.datetime.utcnow(), mean)])
             temperature_array = []
+    elif split[0] == "sensorValue1":
+        value = split[1].strip()
+        voltage = float(value) / 1024 * 5
+        resistance = POTENTIAL_DIVIDER_RESISTOR / (5 / voltage - 1)
+        print "LDR resistance is: %f Ohms" % resistance
 
