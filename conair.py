@@ -31,7 +31,11 @@ while 1:
         if(len(temperature_array) >= 20):
             mean = sum(temperature_array) / float(len(temperature_array)) 
             print "Saving off this minute's mean: %f" % mean
-            client.write_key('temperature', [DataPoint(datetime.datetime.utcnow(), mean)])
+            try:
+                client.write_key('temperature', [DataPoint(datetime.datetime.utcnow(), mean)])
+            except ConnetionError as err:
+                print "Failed to upload data point. Ignore this minute."
+
             temperature_array = []
 
         # And now the LDR resistance
