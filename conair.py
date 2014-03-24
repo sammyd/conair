@@ -33,7 +33,7 @@ while 1:
             print "Saving off this minute's mean: %f" % mean
             try:
                 client.write_key('temperature', [DataPoint(datetime.datetime.utcnow(), mean)])
-            except ConnetionError as err:
+            except ConnectionError as err:
                 print "Failed to upload data point. Ignore this minute."
 
             temperature_array = []
